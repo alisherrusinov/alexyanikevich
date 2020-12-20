@@ -1,21 +1,21 @@
- 
+
+import cmath, random
+
+
 def work(a):
-    if(a<-20):
-        print('Холодновато')
-    elif(a in range(-19,1)):
-        print('Не жарко')
-    elif(a in range(0,21)):
-        print('Сравнительно нормально')
-    elif(a in range(25,31)):
-        print('Жарковато')
-    elif(a>30):
-        print('На улице очень жарко')
+    randoms = [[random.random(),random.random()] for x in range(a)]
+    print(randoms)
+
+    print(cmath.pi/4)
+    print(3.14/4)
+
+    if(cmath.pi/4>3.14/4):
+        print('Pi/4 больше на ', cmath.pi/4-3.14/4)
 
 
 def is_right(a):
     try:
         a = int(a)
-        print(a)
     except ValueError:
         return False
     return a
@@ -24,11 +24,11 @@ def main():
     while True:
         a = input('Введите 1 число ')
         a = is_right(a)
+        if(a<0):
+            break
+        work(a)
         if(a is False):  
             print('Введите корректное число ')
             continue
-        work(a)
-        asnwer = input("Продолжить? (да/нет) ")
-        if(asnwer == 'нет'):
-            break
+        
 main()

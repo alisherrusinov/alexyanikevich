@@ -1,27 +1,28 @@
-import turtle
 
-
-def draw(t):
-    for i in [10,20,30]:
-        t.circle(i)
-
-
-def work(x, y):
-    t = turtle.Turtle()
-    t.speed(5)
-    t.up()
-    t.goto(x, y)
-    t.right(90)
-    t.down()
-    draw(t)
-    
-
-    
-    
+def is_eazy(n):
+    count = 0
+    for i in range(1,n+1):
+        if(n%i == 0):
+            count+=1
+    if(count == 2):
+        return n
+    else:
+        return False
  
+ 
+def work(n):
+    answer = []
+    for i in range(1,n+1):
+        a = is_eazy(i)
+        if a is not False:
+            answer.append(a)
+    print(*answer)
+
 def is_right(a):
     try:
         a = int(a)
+        if(a<0):
+            return False
     except ValueError:
         return False
     return a
@@ -33,12 +34,7 @@ def main():
         if(not a):
             print('Введите корректное число ')
             continue
-        b = input('Введите число ')
-        b = is_right(b)
-        if(not b):
-            print('Введите корректное число ')
-            continue
-        work(a,b)
+        work(a)
         asnwer = input("Продолжить? (да/нет) ")
         if(asnwer == 'нет'):
             break

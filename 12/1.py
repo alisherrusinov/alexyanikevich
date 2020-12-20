@@ -17,8 +17,8 @@ def main():
     while True:
         a = input('Введите строку ')
         a = is_right(a)
-        if(not a):  
-            print('Введите корректную строку ')
+        if(not a):
+            print('Введите корректную строку  ')
             continue
         if(work(a)):
             print('Строка является палиндромом')
